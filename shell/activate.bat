@@ -322,7 +322,7 @@
 @FOR /F "delims=" %%i IN ('@CALL "conda" "..changeps1"') DO @SET "_CONDA_CHANGEPS1=%%i"
 @IF /I "!_CONDA_CHANGEPS1!"=="1" @IF /I NOT "%PROMPT%"=="" (
 	@SET "CONDA_PS1_BACKUP=%PROMPT%"
-	@SET "PROMPT=(!CONDA_DEFAULT_ENV!) %PROMPT%"
+	@SET "PROMPT=(!CONDA_DEFAULT_ENV!) $E[38;2;10;215;25m [Anaconda]$E[0m $_$G"
 )
 @REM # END PROMPT & CONDA_PS1_BACKUP                                     #
 @REM #####################################################################
@@ -348,7 +348,6 @@
 
 	@SET "PATH=%PATH%"
 	@SET "PROMPT=%PROMPT%"
-
 	@SET "CONDA_PREFIX=%CONDA_PREFIX%"
 	@SET "CONDA_DEFAULT_ENV=%CONDA_DEFAULT_ENV%"
 	@SET "CONDA_PS1_BACKUP=%CONDA_PS1_BACKUP%"
